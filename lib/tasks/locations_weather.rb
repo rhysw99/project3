@@ -38,7 +38,7 @@ end
   # Construct the name
   name = ""
   (temp.size - 2).downto(2) do |i|
-    name = name + temp[i]
+    name = name + " " + temp[i]
   end
 
   hash = Hash.new
@@ -46,6 +46,6 @@ end
   hash[:longitude] = temp[0].to_f
   hash[:latitude] = temp[1].to_f
   hash[:name] = name
-  
+
   Location.create(hash)
 end

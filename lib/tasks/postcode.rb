@@ -2,6 +2,9 @@ require 'rubygems'
 require 'json'
 require 'open-uri'
 
+@lname = Array.new
+@lpostcode = Array.new
+
 print "Enter the postcode: "
 postcode = gets.chomp
 
@@ -18,9 +21,8 @@ elsif
     puts "Post code does not exist"
   elsif
     data.each do |d|
-      puts d["name"]
-      puts d["latitude"].to_f
-      puts d["longitude"].to_f
+       @lname << d["name"]
+       @lpostcode << d["postcode"]
     end
   end
 end
