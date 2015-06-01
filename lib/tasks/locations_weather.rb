@@ -35,16 +35,17 @@ end
 
 @a2.each do |a|
   temp = a.to_a.reverse.drop(7)
-  @location_longitude << temp[0].to_f
-  @location_latitude  << temp[1].to_f
-  @station_id         << temp[temp.size - 1].to_f
-  @first_name         << temp[temp.size - 2]
+  # Construct the name
   name = ""
-
   (temp.size - 2).downto(2) do |i|
     name = name + temp[i]
   end
-  @station_name << name
-end
 
-puts @first_name
+  hash = Hash.new
+  hash[:location_id] = temp[temp.size - 1].to_i
+  hash[:longitude] = temp[0].to_f
+  hash[:latitude] = temp[1].to_f
+  hash[:name] = name
+  
+  Location.create(hash)
+end
