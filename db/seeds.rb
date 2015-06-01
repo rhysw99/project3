@@ -11,19 +11,21 @@ require 'open-uri'
 require 'csv'
 
 # Put all postcodes and their associated lat/long into database.
-CSV.foreach("postcodes.csv") do |row|
+CSV.foreach("data/postcodes.csv") do |row|
 	hash = Hash.new
 	hash[:postcode] = row[0]
 	hash[:name] = row[1]
-	hash[:latitude] = row[2]
-	hash[:longitude] = row[3]
-	Postcode.create(hash)
+	hash[:latitude] = row[3]
+	hash[:longitude] = row[4]
+	new = Postcode.create(hash)
+  new.save
 end
-
 
 # Retrieve weather staions and associate with postcode.
 @line = Array.new
 @fields = Array.new
+
+postcodes = Postcode.all
 
 doc = open('ftp://ftp.bom.gov.au/anon2/home/ncc/metadata/lists_by_element/numeric/numVIC_139.txt'){|f| f.read }
 
@@ -54,14 +56,28 @@ end
   (temp.size - 2).downto(2) do |i|
     name = name + temp[i]
   end
-
+  
   hash = Hash.new
   hash[:location_id] = temp[temp.size - 1].to_i
   hash[:longitude] = temp[0].to_f
   hash[:latitude] = temp[1].to_f
   hash[:name] = name
+
+  closest_dist = Float::MAX
+  best_postcode = 0
+
+  postcodes.each do |postcode|
+    new_dist = Math.sqrt((hash[:longitude]-postcode.longitude)**2 + (hash[:latitude]-postcode.latitude)**2)
+    if (new_dist < closest_dist)
+      closest_dist = new_dist
+      best_postcode = postcode.postcode
+    end
+  end
+
+  hash[:postcode] = best_postcode
   
-  Location.create(hash)
+  l = Location.create(hash)
+  l.save
 end
 
 File.delete("data_text.txt")
