@@ -1,6 +1,0 @@
-class AddFieldsToLocations < ActiveRecord::Migration
-  def change
-    add_column :locations, :last_updated, :datetime
-    add_column :locations, :postcode, :string
-  end
-end

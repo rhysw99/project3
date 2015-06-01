@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20150601164615) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "postcode"
-    t.datetime "last_updated"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "last_update"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "postcodes", force: :cascade do |t|
