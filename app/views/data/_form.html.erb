@@ -1,0 +1,41 @@
+<%= form_for(@datum) do |f| %>
+  <% if @datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@datum.errors.count, "error") %> prohibited this datum from being saved:</h2>
+
+      <ul>
+      <% @datum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :location_id %><br>
+    <%= f.number_field :location_id %>
+  </div>
+  <div class="field">
+    <%= f.label :rainfall %><br>
+    <%= f.text_field :rainfall %>
+  </div>
+  <div class="field">
+    <%= f.label :temperature %><br>
+    <%= f.text_field :temperature %>
+  </div>
+  <div class="field">
+    <%= f.label :wind_dir %><br>
+    <%= f.text_field :wind_dir %>
+  </div>
+  <div class="field">
+    <%= f.label :wind_speed %><br>
+    <%= f.text_field :wind_speed %>
+  </div>
+  <div class="field">
+    <%= f.label :observed %><br>
+    <%= f.datetime_select :observed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @datum.location_id %>
+</p>
+
+<p>
+  <strong>Rainfall:</strong>
+  <%= @datum.rainfall %>
+</p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @datum.temperature %>
+</p>
+
+<p>
+  <strong>Wind dir:</strong>
+  <%= @datum.wind_dir %>
+</p>
+
+<p>
+  <strong>Wind speed:</strong>
+  <%= @datum.wind_speed %>
+</p>
+
+<p>
+  <strong>Observed:</strong>
+  <%= @datum.observed %>
+</p>
+
+<%= link_to 'Edit', edit_datum_path(@datum) %> |
+<%= link_to 'Back', data_path %>
