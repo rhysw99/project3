@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location_id: 1
+  rainfall: 1.5
+  temperature: 1.5
+  wind_dir: 1.5
+  wind_speed: 1.5
+  observed: 2015-06-02 02:46:15
+
+two:
+  location_id: 1
+  rainfall: 1.5
+  temperature: 1.5
+  wind_dir: 1.5
+  wind_speed: 1.5
+  observed: 2015-06-02 02:46:15

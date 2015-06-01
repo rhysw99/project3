@@ -1,0 +1,12 @@
+Predictions
+====================
+For weather stations
+-Lookup historical data from last year, weekly from current date.
+-Use linear regression to determine the future weather for the next periods
+-Use r^2 value to determine how well it fits on the curve
+
+Coordinates
+-Locate nearest weather station (or use a combination of stations to determine a more accurate prediction
+-Same as weather stations
+
+

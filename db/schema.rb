@@ -11,16 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601100158) do
+ActiveRecord::Schema.define(version: 20150601164615) do
+
+  create_table "data", force: :cascade do |t|
+    t.integer  "location_id"
+    t.float    "rainfall"
+    t.float    "temperature"
+    t.float    "wind_dir"
+    t.float    "wind_speed"
+    t.datetime "observed"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "location_id"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "postcode"
+    t.datetime "last_updated"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.datetime "last_updated"
-    t.string   "postcode"
   end
 
   create_table "postcodes", force: :cascade do |t|
