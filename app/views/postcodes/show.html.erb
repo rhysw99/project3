@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @postcode.postcode %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @postcode.name %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @postcode.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @postcode.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_postcode_path(@postcode) %> |
+<%= link_to 'Back', postcodes_path %>
