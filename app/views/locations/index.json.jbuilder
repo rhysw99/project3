@@ -1,4 +1,3 @@
-
 json.extract! @cur_date, :date
 json.locations do
   json.array!(@locations) do |location|
