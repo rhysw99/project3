@@ -10,7 +10,7 @@ module LocationsHelper
       new_dist = Math.sqrt((long-postcode.longitude)**2 + (lat-postcode.latitude)**2)
       if (new_dist < closest_dist)
         closest_dist = new_dist
-        best_postcode = postcode.postcode
+        best_postcode = postcode.id
       end
     end
     return best_postcode

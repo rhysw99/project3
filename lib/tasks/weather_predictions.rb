@@ -44,12 +44,11 @@ def probability_of_success y_data
 end
 
 #following method provides the prediction weather data
-def predictions location_id, period
+def predictions location, period
 
-  @latitude #= store latitude here
+
+  @latitude = location
   @longitude #= store longitude here
-
-  @period = period
 
   @current_time.to_i.downto(@time.to_i) do |i|
     if (current_time.to_i - i) % (10*60) == 0

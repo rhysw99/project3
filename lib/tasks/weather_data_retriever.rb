@@ -50,7 +50,7 @@ def parse_HTML_source url
           location_lat = location_doc.xpath("//*[@id='content']/div[2]/table/tr/td[4]/text()").text.strip.to_f
           location_long = location_doc.xpath("//*[@id='content']/div[2]/table/tr/td[5]/text()").text.strip.to_f
           location_postcode = LocationsHelper.getPostcodeFromLatLong(location_lat, location_long)
-          l = Location.create!({:location_id => location_name, :latitude=>location_lat, :longitude=>location_long, :postcode=>location_postcode})
+          l = Location.create!({:location_id => location_name, :latitude=>location_lat, :longitude=>location_long, :postcode_id=>location_postcode})
           dataPoint = l
         end
         dataPoint = dataPoint.id

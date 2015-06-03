@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @cur_date[:date] %>
+</p>
+
+<% if !@locations.empty? %>
+
+<% @locations.each do |loc| %>
+
+<p>
+  <strong>Location id:</strong>
+  <%= loc.location_id %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= loc.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= loc.longitude %>
+</p>
+
+<p>
+  <strong>Last update:</strong>
+  <%= Time.at(loc.last_update).strftime("%H:%M%P %d-%m-%Y") %>
+</p>
+
+<table>
+  <thead>
+  	<tr>
+  		<th colspan="5">Measurements</th>
+  	</tr>
+    <tr>
+      <th>Time</th>
+      <th>Temperature (c)</th>
+      <th>Rainfall since 9am (mm)</th>
+      <th>Wind direction</th>
+      <th>Wind speed (km/h)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @measurements[loc.id].each do |measurement| %>
+      <tr>
+        <td><%= Time.at(measurement.observed).strftime("%H:%M:%S %P") %></td>
+        <td><%= measurement.temperature %></td>
+        <td><%= measurement.rainfall %></td>
+        <td><%= measurement.wind_dir %></td>
+        <td><%= measurement.wind_speed %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
+
+<% else %>
+  <p> There are no weather stations for that postcode </p>
+<% end %>
