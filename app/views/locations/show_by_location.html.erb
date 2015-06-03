@@ -2,15 +2,48 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @cur_date %>
+  <%= @cur_date[:date] %>
 </p>
 
 <p>
   <strong>Current temp:</strong>
-  <%= @current_temp %>
+  <%= @current[:temp] %>
 </p>
 
 <p>
   <strong>Current condition:</strong>
-  <%= @current_cond %>
+  <%= @current[:condition] %>
 </p>  
+
+<% if !@measurements.empty? %>
+
+<table>
+  <thead>
+  	<tr>
+  		<th colspan="5">Measurements</th>
+  	</tr>
+    <tr>
+      <th>Time</th>
+      <th>Temperature (c)</th>
+      <th>Rainfall since 9am (mm)</th>
+      <th>Wind direction</th>
+      <th>Wind speed (km/h)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @measurements.each do |measurement| %>
+      <tr>
+        <td><%= Time.at(measurement.observed).strftime("%H:%M:%S %P") %></td>
+        <td><%= measurement.temperature %></td>
+        <td><%= measurement.rainfall %></td>
+        <td><%= measurement.wind_dir %></td>
+        <td><%= measurement.wind_speed %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% else %>
+	<p> There are no weather observations for that date </p>
+<% end %>

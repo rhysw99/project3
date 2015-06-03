@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150601192207) do
     t.float    "temperature"
     t.string   "wind_dir"
     t.float    "wind_speed"
-    t.datetime "observed"
+    t.integer  "observed"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150601192207) do
     t.string   "location_id"
     t.float    "latitude"
     t.float    "longitude"
-    t.float    "last_update"
+    t.integer  "last_update"
     t.string   "postcode"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

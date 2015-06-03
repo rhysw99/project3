@@ -6,7 +6,7 @@ class CreateData < ActiveRecord::Migration
       t.float :temperature
       t.string :wind_dir
       t.float :wind_speed
-      t.datetime :observed
+      t.integer :observed
 
       t.timestamps null: false
     end
