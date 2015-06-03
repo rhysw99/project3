@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150601192207) do
     t.integer  "location_id"
     t.float    "rainfall"
     t.float    "temperature"
-    t.float    "wind_dir"
+    t.string   "wind_dir"
     t.float    "wind_speed"
     t.datetime "observed"
     t.datetime "created_at",  null: false

@@ -4,7 +4,7 @@ class CreateData < ActiveRecord::Migration
       t.integer :location_id
       t.float :rainfall
       t.float :temperature
-      t.float :wind_dir
+      t.string :wind_dir
       t.float :wind_speed
       t.datetime :observed
 

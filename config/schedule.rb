@@ -28,6 +28,6 @@ job_type :code_runner, "cd :path; rails runner ':task' :output"
 
 # Learn more: http://github.com/javan/whenever
 
-#every 1.minute do
-#	script_runner "lib/tasks/locations_weather.rb"
-#end
+every 10.minute do
+	script_runner "lib/tasks/weather_data_retriever.rb"
+end
