@@ -34,7 +34,6 @@ def parse_HTML_source url
     set.each do |element|
       data[count] ||= Hash.new
       dataPoint = element.text
-      puts dataPoint
       if (transforms[key])
         if (key == :location_id)
           simple_name = dataPoint
@@ -51,10 +50,6 @@ def parse_HTML_source url
           location_lat = location_doc.xpath("//*[@id='content']/div[2]/table/tr/td[4]/text()").text.strip.to_f
           location_long = location_doc.xpath("//*[@id='content']/div[2]/table/tr/td[5]/text()").text.strip.to_f
           location_postcode = LocationsHelper.getPostcodeFromLatLong(location_lat, location_long)
-          puts location_name
-          puts location_lat
-          puts location_long
-          puts location_postcode
           l = Location.create!({:location_id => location_name, :latitude=>location_lat, :longitude=>location_long, :postcode=>location_postcode})
           dataPoint = l
         end
@@ -77,4 +72,7 @@ data.each do |hash|
   puts hash
   hash.delete(:location_url)
   entry = Datum.create!(hash)
+  location = Location.find(hash[:location_id])
+  location.last_update = hash[:observed]
+  location.save
 end

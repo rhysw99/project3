@@ -1,29 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @location.location_id %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @location.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @location.longitude %>
-</p>
-
-<p>
-  <strong>Last update:</strong>
-  <%= @location.last_update %>
-</p>
-
-<p>
-  <strong>Postcode:</strong>
-  <%= @location.postcode %>
-</p>
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+json.extract! @cur_date, :date
+json.extract! @current, :temp, :condition
+json.measurements do
+  json.array!(@measurements) do |measurement|
+    json.time Time.at(measurement.observed).strftime("%H:%M:%S %P")
+    json.temp measurement.temperature
+    json.precip measurement.rainfall
+    json.wind_direction measurement.wind_dir
+    json.wind_speed measurement.wind_speed
+  end
+end

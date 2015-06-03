@@ -15,6 +15,7 @@ class CreateData < ActiveRecord::Migration
       t.float :winds_prob
       t.string :wind_dir_predictions
       t.float :windd_prob
+      t.integer :observed
 
       t.timestamps null: false
     end

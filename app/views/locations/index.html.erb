@@ -21,7 +21,7 @@
         <td><%= location.location_id %></td>
         <td><%= location.latitude %></td>
         <td><%= location.longitude %></td>
-        <td><%= location.last_update %></td>
+        <td><%= Time.at(location.last_update).strftime("%H:%M%P %d-%m-%Y") %></td>
       </tr>
     <% end %>
   </tbody>

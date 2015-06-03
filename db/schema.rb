@@ -30,13 +30,16 @@ ActiveRecord::Schema.define(version: 20150601192207) do
     t.float    "windd_prob"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "observed"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "locations", force: :cascade do |t|
     t.string   "location_id"
     t.float    "latitude"
     t.float    "longitude"
-    t.float    "last_update"
+    t.integer  "last_update"
     t.string   "postcode"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
