@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :locations
   controller :locations do
     get 'weather/locations' => :index
-    get 'weather/data/:location_id/:date' => :show
+    get 'weather/data/:location_id/:date' => :show_by_location
     get 'weather/data/:post_code/:date' => :show_by_postcode
   end
 
