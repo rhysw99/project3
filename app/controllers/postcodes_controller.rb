@@ -61,6 +61,10 @@ class PostcodesController < ApplicationController
     end
   end
 
+  def postcode_predictions
+  
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_postcode

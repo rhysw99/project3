@@ -82,5 +82,5 @@ coeff_wd    = regress(@x_data, @wind_direction, 1)
     temp4 << c*((current_time.to_i + n*60)**i)
   end
   @forecast_wd << temp4.reduce(:+)
-  @probability_wd << probability_of_success(temp4.reduce(:+))  
+  @probability_wd << probability_of_success(temp4.reduce(:+))
 end

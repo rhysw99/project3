@@ -20,8 +20,16 @@ ActiveRecord::Schema.define(version: 20150601192207) do
     t.string   "wind_dir"
     t.float    "wind_speed"
     t.datetime "observed"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.float    "temperature_predicitons"
+    t.float    "temp_prob"
+    t.float    "rainfall_predictions"
+    t.float    "rain_prob"
+    t.float    "wind_speed_predicitons"
+    t.float    "winds_prob"
+    t.string   "wind_dir_predictions"
+    t.float    "windd_prob"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "locations", force: :cascade do |t|
