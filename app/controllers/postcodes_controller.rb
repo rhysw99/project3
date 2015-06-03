@@ -61,9 +61,14 @@ class PostcodesController < ApplicationController
     end
   end
 
-  def postcode_predictions
-  
-  end
+  # def postcode_predictions
+  #   latitude = Postcode.find(:postcode).:latitude
+  #   longitude = Postcode.find(:postcode).:longitude
+  #   @predictions = Datum.find_by params[:temperature_predictions], params[:temp_prob],
+  #                                params[:rainfall_predictions], params[:rain_prob],
+  #                                params[:wind_speed_predicitons], params[:winds_prob],
+  #                                params[:wind_dir_predictions], params[:windd_prob]
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
