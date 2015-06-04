@@ -1,0 +1,43 @@
+Rhys Williams 661561
+Seungwoo Kim 567587
+Ishank Narula 667491
+
+SWEN30006 Project 3
+Reflections
+
+Few changes were made to the original design submitted. A Postcodes model was added to better
+facilitate requests involving aggregation of data at locations within a specified postcode. 
+An unforseen problem at the time of design was that there was no reliable method of determining
+which postcode a latitude/longitude location belonged to, and though the initial plan was to
+first retrieve the coordinates of the stations and compare them with another resource that
+could associate coordinates with postcodes, this had proven to be difficult. Additionally, the 
+query would previously have been cumbersome to carry out as each location in the Locations model 
+would have had to be traversed to determine whether it belonged to the requested postcode for each 
+time the request was made, which did not seem problematic during the design stage of the project 
+but once we had realised that we would be working with a thousand locations, its performance was no
+longer satisfactory. That the same associatitive relations between a model and one of its
+parameters was to be repeatedly verified suggested that the postcode parameter may be better
+suited to be a model with a relation to locations instead, which solves the problem of determining
+the postcode for a location as well. 
+
+An updated document containing the new class and component diagrams have been uploaded to this 
+repository. There is no change made to the sequence diagrams as none of the operations described
+in those involve postcodes and would work just the same as previously intended.
+
+Making predictions about weather properties using a limited sample size (constrained by the
+functional requirement of a limit to API calls imposed by forecast.io) wihin a reasonable duration
+(implicit non-functional requirement that the http requests get served in a timely manner) was a 
+challenge. In the end, we opted to retrieve a collection of historical data at a location with
+calls to forecast, with each call's time specification set apart from the previous one by a number
+of minutes and make enough of these calls to have several hours' worth of data in the immediate
+past with which to make regressions and thus predict the weather for the immediate future. This
+method was moderately successful for properties such as temperature, but the others would have
+required a more in-depth analysis. 
+
+The project has been a reminder that having produced a rigorous and detailed design plan before
+commencing work on implementation would have allowed for much smoother progress, allowing better
+partitioning of the workload, with respect to both the allocated time and the group members, and less 
+waste of effort as we would then rarely need to reconsider and replace what we have done. While it is 
+difficult to consider which problems we may encounter during our implementation and prevent them before
+they occur, it is our hope that this experience will better inform us in future projects of which 
+problems are likely to occur and how we may go about circumventing them.
