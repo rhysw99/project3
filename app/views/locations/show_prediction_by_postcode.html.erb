@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<% if !@location.nil? %>
+
+<p>
+  <strong>Location id:</strong>
+  <%= @location.location_id %>
+</p>
+
+<table>
+  <thead>
+  	<tr>
+  		<th colspan="9">Predictions</th>
+  	</tr>
+    <tr>
+      <th>Time (minutes from now)</th>
+      <th>Temperature (c)</th>
+      <th>Probability</th>
+      <th>Rainfall since 9am (mm)</th>
+      <th>Probability</th>
+      <th>Wind direction</th>
+      <th>Probability</th>
+      <th>Wind speed (km/h)</th>
+      <th>Probability</th>  
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @predictions.each do |time, prediction| %>
+      <tr>
+          <td><%= time %></td>
+          <td><%= prediction[:temp][:value] %></td>
+          <td><%= prediction[:temp][:prob] %></td>
+          <td><%= prediction[:rain][:value] %></td>
+          <td><%= prediction[:rain][:prob] %></td>
+          <td><%= prediction[:wind_direction][:value] %></td>
+          <td><%= prediction[:wind_direction][:prob] %></td>
+          <td><%= prediction[:wind_speed][:value] %></td>
+          <td><%= prediction[:wind_speed][:prob] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% else %>
+  <p> There are no weather stations for that postcode </p>
+<% end %>

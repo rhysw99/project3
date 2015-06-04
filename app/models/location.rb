@@ -3,7 +3,7 @@ class Location < ActiveRecord::Base
 	has_many :data
 
 	def self.find_closest_to lat, long
-		closest_dist = 0
+		closest_dist = Float::MAX
 		best = nil
 		Location.all.each do |loc|
 			puts loc

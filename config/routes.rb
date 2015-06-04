@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     get 'weather/locations' => :index
     get 'weather/data/:location_id/:date' => :show_by_location, :location_id => /[A-Za-z][\w\s]+/
     get 'weather/data/:post_code/:date' => :show_by_postcode, :post_code => /\d+/
+    get 'weather/prediction/:post_code/:period' => :show_prediction_by_postcode
+    get 'weather/prediction/:latitude/:longitude/:period' => :show_prediction_by_latlong, :latitude => /.*/, :longitude => /.*/
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

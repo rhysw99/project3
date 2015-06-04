@@ -5,7 +5,9 @@
   <%= @cur_date[:date] %>
 </p>
 
-<% if !@locations.empty? %>
+<% if (!@postcode.nil?) %>
+
+<% if (!@locations.empty?) %>
 
 <% @locations.each do |loc| %>
 
@@ -59,5 +61,9 @@
 <% end %>
 
 <% else %>
-  <p> There are no weather stations for that postcode </p>
+  <p> There are no weather stations for that postcode :( </p>
+<% end %>
+
+<% else %>
+  <p> There are no weather stations for that postcode :( </p>
 <% end %>
